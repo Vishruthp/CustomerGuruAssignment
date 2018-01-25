@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Assignment Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <img src="logo.png">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right pull-right" style="margin-right:-103px;">
+        <li style="margin-right:20px;"><i class="fa fa-home medium" aria-hidden="true" style="font-size: 32px;color: lightgrey;"></i></li>
+        <li style="margin-right:20px;"><i class="fa fa-comment" aria-hidden="true" style="font-size: 32px;color: lightgrey;"></i></li>
+        <li style="margin-right:20px;"><i class="fa fa-bell" aria-hidden="true" style="font-size: 32px;color: lightgrey;"></i></li>
+        <li style="margin-right:20px;"><i class="fa fa-bars" aria-hidden="true" style="font-size: 32px;color: lightgrey;"></i></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+        <section class="shape-section" style="
+    width:  20%;
+">
+                <div class="container diamond-shape pull-left" style="
+    margin-left: 140px;
+    margin-bottom:  10px;
+    background:  lightcoral;
+">
+                  <div class="item-count">48</div><!-- .item-count -->
+                </div><p style="
+    margin-left: 114px;
+    font-size: 20px;
+">
+    Issues Open</p>
+<br>
+<br><br><!-- .container .diamond-shape-->
+               
+              </section>
+<section class="shape-section pull-right" style="width:  20%;margin-right: 300px;">
+                <div class="container diamond-shape pull-left" style="margin-left: 312px;margin-top: -249px;background:  lightseagreen;">
+                  <div class="item-count">16</div><!-- .item-count -->
+                </div><p style="margin-left: 328px;font-size: 20px;margin-top:  -112px;">Issues Resolved</p>
+<br>
+<br><br><!-- .container .diamond-shape-->
+               
+              </section><section class="shape-section pull-right" style="width:  20%;margin-top:  -234px;">
+                <div class="container diamond-shape pull-left" style="margin-left: 137px;margin-bottom:  10px;background:  lightsteelblue;margin-top:-20px;">
+                  <div class="item-count">25</div><!-- .item-count -->
+                </div><p style="margin-left: 114px;font-size: 20px;">
+    Issues WIP</p>
+<br>
+<br><br><!-- .container .diamond-shape-->
+               
+              </section>
+</div>
+<center>
+<div id="myDiv" style="width:50%;height:65%;background:#f6f6f6"><!-- Plotly chart will be drawn inside this DIV --></div>
+</center>
+<script>
+  var data = [{
+  x: ['Medical Treatment', 'Nursing & care', 'Food & Beverages','Maintenance'],
+  y: [17, 17, 20, 17],
+  width: [0.4, 0.4, 0.4,0.4],
+  marker:{
+    color: ['rgba(222,45,38,0.8)','rgba(222,45,38,0.8)','rgba(222,45,38,0.8)','rgba(222,45,38,0.8)']
+  },
+  type: 'bar'
+}];
+var layout = {
+  title: 'Open Issues By Department',
+  paper_bgcolor: 'rgba(245,246,249,1)',
+  plot_bgcolor: 'rgba(245,246,249,1)',
+  showlegend: false,
+  annotations: []
+};
+Plotly.newPlot('myDiv', data,layout);
+</script>
+<footer>
+        <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step active"></span>
+              </div>
+</footer>
+<script>
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
